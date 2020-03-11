@@ -23,3 +23,25 @@ Then /I should see all the movies/ do
     step %{I should see "#{movie.title}"}
   end
 end
+
+
+Then(/^the director of "([^"]*)" should be "([^"]*)"$/) do |arg1, arg2|
+  # pending # Write code here that turns the phrase above into concrete actions
+  page.should have_content(arg1)
+  page.should have_content(arg2)
+  # expect(Movie.find_by_title(arg1).director).to equal(arg2)
+  expect(Movie.find_by_title(arg1).director).to eq(arg2)
+  
+  
+  # field = find_field('Director')
+  # field_value = (field.tag_name == 'textarea') ? field.text : field.value
+  # if field_value.respond_to? :should
+  #   field_value.should =~ /#{value}/
+  # else
+  #   assert_match(arg2, field_value)
+  # end
+
+
+  
+end
+
